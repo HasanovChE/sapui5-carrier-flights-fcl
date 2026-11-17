@@ -1,0 +1,25 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f"
+	controllerName="student00.sap.training.flexiblecolumnlayout.controller.Overview">
+	<f:DynamicPage id="dynamicPageOverviewIdd" headerExpanded="true" toggleHeaderOnTitleClick="true">
+		<f:content>
+			<List id="listt"
+				items="{/UX_C_Carrier_TP}"
+				busyIndicatorDelay="0"
+				growing="true"
+				growingThreshold="10"
+				growingScrollToLoad="true"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				selectionChange="onSelectionChange">
+				<items>
+					<ObjectListItem
+						id="objectListItemm"
+						title="{Carrname}"
+						intro="{Carrid}"
+						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+						press="onPress">
+					</ObjectListItem>
+				</items>
+			</List>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

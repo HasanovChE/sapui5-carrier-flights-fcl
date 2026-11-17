@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="student.com.sap.training.advancedsapui5.fullscreen.controller.Carrier"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="dynamicPageOverviewId"
+        headerExpanded="true"
+        toggleHeaderOnTitleClick="true"
+    >
+        <f:content>
+            <List
+                id="list"
+                items="{/UX_C_Carrier_TP}"
+                busyIndicatorDelay="0"
+                growing="true"
+                growingThreshold="10"
+                growingScrollToLoad="true"
+                mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+                selectionChange="onSelect"
+            >
+                <items>
+                    <ObjectListItem
+                        id="objectListItem"
+                        title="{Carrname}"
+                        intro="{Carrid}"
+                        type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
+                        press="onSelect"
+                    />
+                </items>
+            </List>
+
+            <!-- <Table id="carrierTable" items="{/UX_C_Carrier_TP}">
+        
+        <columns>
+         
+            <Column id="idcolumn">
+                <Text id="idheader" text="{i18n>columnId}"/>
+            </Column>
+            <Column id="namecolumn">
+                <Text id="nameheader" text="{i18n>columnName}"/>
+            </Column>
+      
+        </columns>
+      
+        <items>
+              <ColumnListItem id="carrcolumnListItem" press="onPress" type="Navigation">
+                <cells>
+                  <ObjectIdentifier id="carrobjectIdentifier" title="{Carrid}" />
+                  <Text id="carrnametext" text="{Carrname}" />
+                </cells> 
+              </ColumnListItem>
+        </items>
+
+    <Table items="{/CarrierCollection}">
+    <columns>
+        <Column minScreenWidth="Tablet" demandPopin="true">
+            <Text text="{i18n>columnId}"/>
+        </Column>
+        <Column minScreenWidth="Tablet" demandPopin="true">
+            <Text text="{i18n>columnName}"/>
+        </Column>
+    </columns>
+    <items>
+        <ColumnListItem press="onPress" type="Navigation">
+            <cells>
+                <ObjectIdentifier title="{AirLineID}"/>
+                <Text text="{AirLineName}"/>
+            </cells>
+        </ColumnListItem>
+    </items>
+</Table>
+
+
+    </Table> -->
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
